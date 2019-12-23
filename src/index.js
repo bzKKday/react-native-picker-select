@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import {
-    ColorPropType,
     Keyboard,
     Modal,
     Picker,
@@ -11,58 +10,10 @@ import {
     TouchableWithoutFeedback,
     View,
 } from 'react-native';
-import PropTypes from 'prop-types';
 import isEqual from 'lodash.isequal';
 import { defaultStyles } from './styles';
 
 export default class RNPickerSelect extends PureComponent {
-    static propTypes = {
-        onValueChange: PropTypes.func.isRequired,
-        items: PropTypes.arrayOf(
-            PropTypes.shape({
-                label: PropTypes.string.isRequired,
-                value: PropTypes.any.isRequired,
-                key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-                color: ColorPropType,
-            })
-        ).isRequired,
-        value: PropTypes.any, // eslint-disable-line react/forbid-prop-types
-        placeholder: PropTypes.shape({
-            label: PropTypes.string,
-            value: PropTypes.any,
-            key: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-            color: ColorPropType,
-        }),
-        disabled: PropTypes.bool,
-        itemKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-        style: PropTypes.shape({}),
-        children: PropTypes.any, // eslint-disable-line react/forbid-prop-types
-        placeholderTextColor: ColorPropType, // deprecated
-        useNativeAndroidPickerStyle: PropTypes.bool,
-
-        // Custom Modal props (iOS only)
-        hideDoneBar: PropTypes.bool, // deprecated
-        doneText: PropTypes.string,
-        onDonePress: PropTypes.func,
-        onUpArrow: PropTypes.func,
-        onDownArrow: PropTypes.func,
-        onOpen: PropTypes.func,
-        onClose: PropTypes.func,
-
-        // Modal props (iOS only)
-        modalProps: PropTypes.shape({}),
-
-        // TextInput props (iOS only)
-        textInputProps: PropTypes.shape({}),
-
-        // Picker props
-        pickerProps: PropTypes.shape({}),
-
-        // Custom Icon
-        Icon: PropTypes.func,
-        InputAccessoryView: PropTypes.func,
-    };
-
     static defaultProps = {
         value: undefined,
         placeholder: {
